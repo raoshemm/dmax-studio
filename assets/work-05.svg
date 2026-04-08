@@ -1,0 +1,18 @@
+<svg width="960" height="1200" viewBox="0 0 960 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1200" fill="#07070C"/>
+  <rect x="62" y="62" width="836" height="1076" rx="42" fill="url(#paint0_linear)" fill-opacity="0.22" stroke="#F3E8D7" stroke-opacity="0.08"/>
+  <circle cx="304" cy="350" r="210" fill="#FFBB74" fill-opacity="0.18"/>
+  <circle cx="686" cy="720" r="226" fill="#5FD0FF" fill-opacity="0.18"/>
+  <path d="M238 426C342 386 490 374 622 410C668 422 716 426 762 422" stroke="#F3E8D7" stroke-width="4" stroke-opacity="0.68"/>
+  <path d="M220 626C362 664 512 760 710 968" stroke="#F76D4D" stroke-width="12" stroke-linecap="round"/>
+  <path d="M238 826C426 718 566 594 660 374" stroke="#5FD0FF" stroke-width="8" stroke-linecap="round"/>
+  <text x="114" y="150" fill="#F3E8D7" fill-opacity="0.9" font-family="Georgia, serif" font-size="82">CHROME</text>
+  <text x="114" y="222" fill="#F3E8D7" fill-opacity="0.72" font-family="Avenir Next, PingFang SC, sans-serif" font-size="26" letter-spacing="7">PLACEHOLDER MOODBOARD</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="112" y1="78" x2="808" y2="1120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#221117"/>
+      <stop offset="0.46" stop-color="#09090E"/>
+      <stop offset="1" stop-color="#101B32"/>
+    </linearGradient>
+  </defs>
+</svg>
