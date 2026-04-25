@@ -323,58 +323,58 @@ const ACHIEVEMENTS = [
     key: "practitioner",
     name: "修行者",
     conditionLabel: "累计 10 下",
-    reward: "解锁霓虹法器与寺钟木音",
+    reward: "解锁霓虹金刚杵与寺钟木音",
   },
   {
     key: "discipline",
     name: "持戒者",
     conditionLabel: "单日 108 下",
-    reward: "解锁玉髓法器与玉磬清响",
+    reward: "解锁玉磬与玉磬清响",
   },
   {
     key: "streak_7",
     name: "连续 7 天",
     conditionLabel: "连续登录 7 天",
-    reward: "解锁玄木法器与玄寺低鸣",
+    reward: "解锁玄木钵与玄寺低鸣",
   },
   {
     key: "streak_30",
     name: "连续 30 天",
     conditionLabel: "连续登录 30 天",
-    reward: "解锁琉璃法器与琉璃空鸣",
+    reward: "解锁琉璃钵与琉璃空鸣",
   },
   {
     key: "thousand",
     name: "千次叩",
     conditionLabel: "累计 1000 下",
-    reward: "解锁金曜法器与赛博脉冲",
+    reward: "解锁金刚铃与赛博脉冲",
   },
   {
     key: "ten_thousand",
     name: "万次叩",
     conditionLabel: "累计 10000 下",
-    reward: "解锁像素法器与像素鼓点",
+    reward: "解锁像素鼓与像素鼓点",
   },
   {
     key: "collector",
     name: "收藏家",
     conditionLabel: "解锁所有外观",
-    reward: "解锁全息法器与全息回环",
+    reward: "解锁全息坛与全息回环",
   },
 ];
 
 const APPEARANCES = [
-  { key: "classic", name: "经典法器", condition: "默认解锁", unlockAchievement: null },
-  { key: "cyber", name: "赛博莲华", condition: "达成 修行者", unlockAchievement: "practitioner" },
-  { key: "jade", name: "玉髓法器", condition: "达成 持戒者", unlockAchievement: "discipline" },
-  { key: "gold", name: "金曜法器", condition: "达成 千次叩", unlockAchievement: "thousand" },
-  { key: "dark", name: "玄木法器", condition: "连续 7 天", unlockAchievement: "streak_7" },
-  { key: "crystal", name: "琉璃法器", condition: "连续 30 天", unlockAchievement: "streak_30" },
-  { key: "pixel", name: "像素法器", condition: "达成 万次叩", unlockAchievement: "ten_thousand" },
-  { key: "hologram", name: "全息法器", condition: "达成 收藏家", unlockAchievement: "collector" },
+  { key: "classic", name: "传统木鱼", condition: "默认解锁", unlockAchievement: null },
+  { key: "cyber", name: "霓虹金刚杵", condition: "达成 修行者", unlockAchievement: "practitioner" },
+  { key: "jade", name: "玉磬", condition: "达成 持戒者", unlockAchievement: "discipline" },
+  { key: "gold", name: "金刚铃", condition: "达成 千次叩", unlockAchievement: "thousand" },
+  { key: "dark", name: "玄木钵", condition: "连续 7 天", unlockAchievement: "streak_7" },
+  { key: "crystal", name: "琉璃钵", condition: "连续 30 天", unlockAchievement: "streak_30" },
+  { key: "pixel", name: "像素鼓", condition: "达成 万次叩", unlockAchievement: "ten_thousand" },
+  { key: "hologram", name: "全息坛", condition: "达成 收藏家", unlockAchievement: "collector" },
   {
     key: "mantra",
-    name: "梵焰法器",
+    name: "梵焰灯",
     condition: "解锁 隐藏秘藏 A",
     unlockAchievement: null,
     unlockCollectionCard: "secret_echo",
@@ -382,7 +382,7 @@ const APPEARANCES = [
   },
   {
     key: "void",
-    name: "空域法器",
+    name: "空月轮",
     condition: "解锁 隐藏秘藏 B",
     unlockAchievement: null,
     unlockCollectionCard: "secret_completion",
@@ -395,15 +395,16 @@ const SOUND_STYLES = [
     key: "classic",
     name: "经典木音",
     shortName: "经典木音",
-    tone: "温润、低频、木质",
+    tone: "清脆、空心、木质",
     condition: "默认解锁",
     unlockAchievement: null,
     hit: {
-      masterPeak: 0.22,
-      masterDuration: 0.42,
+      masterPeak: 0.18,
+      masterDuration: 0.28,
       layers: [
-        { type: "triangle", start: 220, end: 166, peak: 0.66, attack: 0.01, duration: 0.28 },
-        { type: "sine", start: 900, end: 340, peak: 0.16, attack: 0.004, duration: 0.06 },
+        { type: "triangle", start: 360, end: 238, peak: 0.42, attack: 0.004, duration: 0.16 },
+        { type: "sine", start: 820, end: 360, peak: 0.16, attack: 0.003, duration: 0.09, delay: 0.003 },
+        { type: "sine", start: 1640, end: 1120, peak: 0.045, attack: 0.002, duration: 0.035 },
       ],
     },
     unlockChord: { frequencies: [440, 554, 659], duration: 0.9, peak: 0.2 },
@@ -413,16 +414,16 @@ const SOUND_STYLES = [
     key: "temple",
     name: "寺钟木音",
     shortName: "寺钟木音",
-    tone: "钟面、回荡、暖金",
+    tone: "清木、回荡、寺感",
     condition: "达成 修行者",
     unlockAchievement: "practitioner",
     hit: {
-      masterPeak: 0.2,
-      masterDuration: 0.62,
+      masterPeak: 0.18,
+      masterDuration: 0.54,
       layers: [
-        { type: "sine", start: 312, end: 210, peak: 0.4, attack: 0.015, duration: 0.44 },
-        { type: "triangle", start: 624, end: 420, peak: 0.18, attack: 0.02, duration: 0.52, delay: 0.014 },
-        { type: "sine", start: 1020, end: 420, peak: 0.1, attack: 0.005, duration: 0.08 },
+        { type: "sine", start: 286, end: 196, peak: 0.34, attack: 0.012, duration: 0.34 },
+        { type: "triangle", start: 572, end: 392, peak: 0.14, attack: 0.012, duration: 0.36, delay: 0.008 },
+        { type: "sine", start: 980, end: 620, peak: 0.06, attack: 0.004, duration: 0.11, delay: 0.012 },
       ],
     },
     unlockChord: { frequencies: [392, 523, 784], duration: 1, peak: 0.18 },
@@ -748,20 +749,20 @@ const SOUND_STYLE_FEEDBACK = {
 
 const SOUND_STYLE_TUNING = {
   classic: {
-    transient: { peak: 0.05, duration: 0.032, filterStart: 3600, filterEnd: 1400 },
-    resonance: { frequency: 540, q: 4.6, mix: 0.26 },
-    air: { frequency: 1800, mix: 0.06 },
-    echo: { time: 0.08, feedback: 0.14, mix: 0.08, lowpass: 2400 },
-    stereoWidth: 0.04,
-    drift: 0.012,
+    transient: { peak: 0.064, duration: 0.018, filterStart: 5600, filterEnd: 2300 },
+    resonance: { frequency: 720, q: 6.4, mix: 0.28 },
+    air: { frequency: 3200, mix: 0.06 },
+    echo: { time: 0.045, feedback: 0.07, mix: 0.03, lowpass: 2400 },
+    stereoWidth: 0.025,
+    drift: 0.005,
   },
   temple: {
-    transient: { peak: 0.04, duration: 0.034, filterStart: 3000, filterEnd: 1180 },
-    resonance: { frequency: 420, q: 6.2, mix: 0.3 },
-    air: { frequency: 2200, mix: 0.08 },
-    echo: { time: 0.14, feedback: 0.2, mix: 0.12, lowpass: 2600 },
-    stereoWidth: 0.08,
-    drift: 0.01,
+    transient: { peak: 0.044, duration: 0.026, filterStart: 4000, filterEnd: 1600 },
+    resonance: { frequency: 520, q: 6.8, mix: 0.32 },
+    air: { frequency: 2400, mix: 0.06 },
+    echo: { time: 0.11, feedback: 0.16, mix: 0.08, lowpass: 2200 },
+    stereoWidth: 0.05,
+    drift: 0.008,
   },
   jade: {
     transient: { peak: 0.038, duration: 0.03, filterStart: 4600, filterEnd: 2200 },
@@ -2845,7 +2846,7 @@ const renderAppearances = () => {
         <p class="appearance-name">${appearance.name}</p>
         <p class="appearance-condition">${unlocked ? (active ? "当前使用中" : "已解锁，可切换") : appearance.condition}</p>
       </span>
-      <span class="appearance-lock">${unlocked ? "使用中" : "锁定"}</span>
+      <span class="appearance-lock">${unlocked ? (active ? "使用中" : "切换") : "锁定"}</span>
     `;
     if (unlocked) {
       button.addEventListener("click", () => {
