@@ -81,35 +81,6 @@ const RHYTHM_STATES = [
     note: "继续保持这个频率，反馈会越来越稳。",
   },
 ];
-const RHYTHM_GUIDANCE_STATES = [
-  {
-    key: "rushed",
-    label: "节奏太急",
-    shortLabel: "太急",
-    tone: "warning",
-    minHits: 4,
-    maxAverage: 280,
-    note: "你敲得有些太快了，先把呼吸放慢半拍。",
-  },
-  {
-    key: "scattered",
-    label: "节奏散了",
-    shortLabel: "收拍",
-    tone: "warning",
-    minHits: 5,
-    minDeviation: 190,
-    note: "间隔有些乱，先把每一下的距离敲稳。",
-  },
-  {
-    key: "dragging",
-    label: "节奏太缓",
-    shortLabel: "连起来",
-    tone: "caution",
-    minHits: 4,
-    minAverage: 1320,
-    note: "再连贯一点，木鱼才会真正开始回应。",
-  },
-];
 
 const getLevelThreshold = (level) => {
   if (level <= 1) {
@@ -323,71 +294,55 @@ const ACHIEVEMENTS = [
     key: "practitioner",
     name: "修行者",
     conditionLabel: "累计 10 下",
-    reward: "解锁霓虹金刚杵与寺钟木音",
+    reward: "解锁霓虹法器与寺钟木音",
   },
   {
     key: "discipline",
     name: "持戒者",
     conditionLabel: "单日 108 下",
-    reward: "解锁玉磬与玉磬清响",
+    reward: "解锁玉髓法器与玉磬清响",
   },
   {
     key: "streak_7",
     name: "连续 7 天",
     conditionLabel: "连续登录 7 天",
-    reward: "解锁玄木钵与玄寺低鸣",
+    reward: "解锁玄木法器与玄寺低鸣",
   },
   {
     key: "streak_30",
     name: "连续 30 天",
     conditionLabel: "连续登录 30 天",
-    reward: "解锁琉璃钵与琉璃空鸣",
+    reward: "解锁琉璃法器与琉璃空鸣",
   },
   {
     key: "thousand",
     name: "千次叩",
     conditionLabel: "累计 1000 下",
-    reward: "解锁金刚铃与赛博脉冲",
+    reward: "解锁金曜法器与赛博脉冲",
   },
   {
     key: "ten_thousand",
     name: "万次叩",
     conditionLabel: "累计 10000 下",
-    reward: "解锁像素鼓与像素鼓点",
+    reward: "解锁像素法器与像素鼓点",
   },
   {
     key: "collector",
     name: "收藏家",
     conditionLabel: "解锁所有外观",
-    reward: "解锁全息坛与全息回环",
+    reward: "解锁全息法器与全息回环",
   },
 ];
 
 const APPEARANCES = [
-  { key: "classic", name: "传统木鱼", condition: "默认解锁", unlockAchievement: null },
-  { key: "cyber", name: "霓虹金刚杵", condition: "达成 修行者", unlockAchievement: "practitioner" },
-  { key: "jade", name: "玉磬", condition: "达成 持戒者", unlockAchievement: "discipline" },
-  { key: "gold", name: "金刚铃", condition: "达成 千次叩", unlockAchievement: "thousand" },
-  { key: "dark", name: "玄木钵", condition: "连续 7 天", unlockAchievement: "streak_7" },
-  { key: "crystal", name: "琉璃钵", condition: "连续 30 天", unlockAchievement: "streak_30" },
-  { key: "pixel", name: "像素鼓", condition: "达成 万次叩", unlockAchievement: "ten_thousand" },
-  { key: "hologram", name: "全息坛", condition: "达成 收藏家", unlockAchievement: "collector" },
-  {
-    key: "mantra",
-    name: "梵焰灯",
-    condition: "解锁 隐藏秘藏 A",
-    unlockAchievement: null,
-    unlockCollectionCard: "secret_echo",
-    countsTowardCollector: false,
-  },
-  {
-    key: "void",
-    name: "空月轮",
-    condition: "解锁 隐藏秘藏 B",
-    unlockAchievement: null,
-    unlockCollectionCard: "secret_completion",
-    countsTowardCollector: false,
-  },
+  { key: "classic", name: "经典法器", condition: "默认解锁", unlockAchievement: null },
+  { key: "cyber", name: "霓虹法器", condition: "达成 修行者", unlockAchievement: "practitioner" },
+  { key: "jade", name: "玉髓法器", condition: "达成 持戒者", unlockAchievement: "discipline" },
+  { key: "gold", name: "金曜法器", condition: "达成 千次叩", unlockAchievement: "thousand" },
+  { key: "dark", name: "玄木法器", condition: "连续 7 天", unlockAchievement: "streak_7" },
+  { key: "crystal", name: "琉璃法器", condition: "连续 30 天", unlockAchievement: "streak_30" },
+  { key: "pixel", name: "像素法器", condition: "达成 万次叩", unlockAchievement: "ten_thousand" },
+  { key: "hologram", name: "全息法器", condition: "达成 收藏家", unlockAchievement: "collector" },
 ];
 
 const SOUND_STYLES = [
@@ -395,16 +350,15 @@ const SOUND_STYLES = [
     key: "classic",
     name: "经典木音",
     shortName: "经典木音",
-    tone: "清脆、空心、木质",
+    tone: "温润、低频、木质",
     condition: "默认解锁",
     unlockAchievement: null,
     hit: {
-      masterPeak: 0.18,
-      masterDuration: 0.28,
+      masterPeak: 0.22,
+      masterDuration: 0.42,
       layers: [
-        { type: "triangle", start: 360, end: 238, peak: 0.42, attack: 0.004, duration: 0.16 },
-        { type: "sine", start: 820, end: 360, peak: 0.16, attack: 0.003, duration: 0.09, delay: 0.003 },
-        { type: "sine", start: 1640, end: 1120, peak: 0.045, attack: 0.002, duration: 0.035 },
+        { type: "triangle", start: 220, end: 166, peak: 0.66, attack: 0.01, duration: 0.28 },
+        { type: "sine", start: 900, end: 340, peak: 0.16, attack: 0.004, duration: 0.06 },
       ],
     },
     unlockChord: { frequencies: [440, 554, 659], duration: 0.9, peak: 0.2 },
@@ -414,16 +368,16 @@ const SOUND_STYLES = [
     key: "temple",
     name: "寺钟木音",
     shortName: "寺钟木音",
-    tone: "清木、回荡、寺感",
+    tone: "钟面、回荡、暖金",
     condition: "达成 修行者",
     unlockAchievement: "practitioner",
     hit: {
-      masterPeak: 0.18,
-      masterDuration: 0.54,
+      masterPeak: 0.2,
+      masterDuration: 0.62,
       layers: [
-        { type: "sine", start: 286, end: 196, peak: 0.34, attack: 0.012, duration: 0.34 },
-        { type: "triangle", start: 572, end: 392, peak: 0.14, attack: 0.012, duration: 0.36, delay: 0.008 },
-        { type: "sine", start: 980, end: 620, peak: 0.06, attack: 0.004, duration: 0.11, delay: 0.012 },
+        { type: "sine", start: 312, end: 210, peak: 0.4, attack: 0.015, duration: 0.44 },
+        { type: "triangle", start: 624, end: 420, peak: 0.18, attack: 0.02, duration: 0.52, delay: 0.014 },
+        { type: "sine", start: 1020, end: 420, peak: 0.1, attack: 0.005, duration: 0.08 },
       ],
     },
     unlockChord: { frequencies: [392, 523, 784], duration: 1, peak: 0.18 },
@@ -746,90 +700,6 @@ const SOUND_STYLE_FEEDBACK = {
     },
   },
 };
-
-const SOUND_STYLE_TUNING = {
-  classic: {
-    transient: { peak: 0.064, duration: 0.018, filterStart: 5600, filterEnd: 2300 },
-    resonance: { frequency: 720, q: 6.4, mix: 0.28 },
-    air: { frequency: 3200, mix: 0.06 },
-    echo: { time: 0.045, feedback: 0.07, mix: 0.03, lowpass: 2400 },
-    stereoWidth: 0.025,
-    drift: 0.005,
-  },
-  temple: {
-    transient: { peak: 0.044, duration: 0.026, filterStart: 4000, filterEnd: 1600 },
-    resonance: { frequency: 520, q: 6.8, mix: 0.32 },
-    air: { frequency: 2400, mix: 0.06 },
-    echo: { time: 0.11, feedback: 0.16, mix: 0.08, lowpass: 2200 },
-    stereoWidth: 0.05,
-    drift: 0.008,
-  },
-  jade: {
-    transient: { peak: 0.038, duration: 0.03, filterStart: 4600, filterEnd: 2200 },
-    resonance: { frequency: 860, q: 7.8, mix: 0.22 },
-    air: { frequency: 2600, mix: 0.14 },
-    echo: { time: 0.11, feedback: 0.16, mix: 0.11, lowpass: 3200 },
-    stereoWidth: 0.12,
-    drift: 0.01,
-  },
-  cyber: {
-    transient: { peak: 0.06, duration: 0.026, filterStart: 5400, filterEnd: 2400 },
-    resonance: { frequency: 980, q: 9, mix: 0.2 },
-    air: { frequency: 3400, mix: 0.12 },
-    echo: { time: 0.09, feedback: 0.18, mix: 0.13, lowpass: 2900 },
-    stereoWidth: 0.22,
-    drift: 0.02,
-  },
-  dark: {
-    transient: { peak: 0.03, duration: 0.04, filterStart: 1800, filterEnd: 720 },
-    resonance: { frequency: 260, q: 4.4, mix: 0.34 },
-    air: { frequency: 1400, mix: 0.04 },
-    echo: { time: 0.17, feedback: 0.24, mix: 0.13, lowpass: 1800 },
-    stereoWidth: 0.03,
-    drift: 0.008,
-  },
-  crystal: {
-    transient: { peak: 0.045, duration: 0.028, filterStart: 5200, filterEnd: 2600 },
-    resonance: { frequency: 1180, q: 8.6, mix: 0.18 },
-    air: { frequency: 3800, mix: 0.16 },
-    echo: { time: 0.16, feedback: 0.18, mix: 0.14, lowpass: 3600 },
-    stereoWidth: 0.16,
-    drift: 0.014,
-  },
-  pixel: {
-    transient: { peak: 0.055, duration: 0.02, filterStart: 2600, filterEnd: 1400 },
-    resonance: { frequency: 760, q: 8, mix: 0.12 },
-    air: { frequency: 2200, mix: 0.04 },
-    echo: { time: 0.055, feedback: 0.08, mix: 0.05, lowpass: 2200 },
-    stereoWidth: 0.1,
-    drift: 0.018,
-  },
-  hologram: {
-    transient: { peak: 0.045, duration: 0.03, filterStart: 4800, filterEnd: 2100 },
-    resonance: { frequency: 1040, q: 7.4, mix: 0.24 },
-    air: { frequency: 3000, mix: 0.14 },
-    echo: { time: 0.13, feedback: 0.22, mix: 0.16, lowpass: 3400 },
-    stereoWidth: 0.18,
-    drift: 0.016,
-  },
-  mantra: {
-    transient: { peak: 0.04, duration: 0.03, filterStart: 3600, filterEnd: 1600 },
-    resonance: { frequency: 510, q: 5.8, mix: 0.32 },
-    air: { frequency: 2400, mix: 0.08 },
-    echo: { time: 0.18, feedback: 0.24, mix: 0.18, lowpass: 2400 },
-    stereoWidth: 0.1,
-    drift: 0.012,
-  },
-  void: {
-    transient: { peak: 0.032, duration: 0.038, filterStart: 2400, filterEnd: 980 },
-    resonance: { frequency: 340, q: 5.2, mix: 0.36 },
-    air: { frequency: 1800, mix: 0.06 },
-    echo: { time: 0.22, feedback: 0.28, mix: 0.18, lowpass: 2000 },
-    stereoWidth: 0.08,
-    drift: 0.01,
-  },
-};
-
 const KNOWN_QUOTES = new Set(ZEN_QUOTES);
 const COLLECTION_GROUPS = [
   { key: "public", kicker: "PUBLIC RELICS", title: "公开秘藏" },
@@ -843,7 +713,7 @@ const COLLECTION_CARDS = [
     index: "A-01",
     kicker: "PUBLIC RELIC",
     title: "赛博佛主",
-    image: "./assets/works_v2/work1.jpg",
+    image: "./assets/works_v2/work1.png",
     caption: "以佛主轮廓、霓虹衣纹与金色光环构成赛博禅意主视觉。",
     medium: "佛主轮廓 / 金色光环 / 霓虹衣纹",
     tone: "庄严、发光、强识别",
@@ -858,7 +728,7 @@ const COLLECTION_CARDS = [
     index: "A-02",
     kicker: "PUBLIC RELIC",
     title: "赛博东方",
-    image: "./assets/works_v2/work2.jpg",
+    image: "./assets/works_v2/work2.png",
     caption: "东方符号与未来感材质叠合，形成高辨识度的数字叙事风格。",
     medium: "东方符号 / 未来材质 / 数字叙事",
     tone: "冷感、锋利、未来东方",
@@ -875,7 +745,7 @@ const COLLECTION_CARDS = [
     index: "A-03",
     kicker: "PUBLIC RELIC",
     title: "数字禅珠",
-    image: "./assets/works_v2/work3.jpg",
+    image: "./assets/works_v2/work3.png",
     caption: "借助珠串、发光符文与沉静背景，营造一种可被凝视的数字仪式感。",
     medium: "珠串 / 符文 / 沉静背景",
     tone: "凝视、低饱和、仪式感",
@@ -892,7 +762,7 @@ const COLLECTION_CARDS = [
     index: "A-04",
     kicker: "PUBLIC RELIC",
     title: "未来佛像",
-    image: "./assets/works_v2/work4.jpg",
+    image: "./assets/works_v2/work4.png",
     caption: "将佛像面部、机械结构与符文光轨并置，强化赛博佛主主题。",
     medium: "佛像面部 / 机械结构 / 光轨",
     tone: "高压、机械、神性",
@@ -909,7 +779,7 @@ const COLLECTION_CARDS = [
     index: "A-05",
     kicker: "PUBLIC RELIC",
     title: "赛博禅木",
-    image: "./assets/works_v2/work5.jpg",
+    image: "./assets/works_v2/work5.png",
     caption: "以木质、光纹与数字纹理混合，延展木鱼装置的材质想象。",
     medium: "木质肌理 / 光纹 / 数字纹理",
     tone: "温热、材质感、装置化",
@@ -926,7 +796,7 @@ const COLLECTION_CARDS = [
     index: "A-06",
     kicker: "PUBLIC RELIC",
     title: "数字佛光",
-    image: "./assets/works_v2/work6.jpg",
+    image: "./assets/works_v2/work6.png",
     caption: "通过金光扩散与冷色辉光的对撞，完成更完整的佛主视觉终场。",
     medium: "金光扩散 / 冷色辉光 / 终场构图",
     tone: "终章、扩散、满幅光感",
@@ -1194,8 +1064,6 @@ const lightboxMeta = document.getElementById("lightbox-meta");
 const lightboxClose = document.getElementById("lightbox-close");
 
 let audioContext;
-let audioMasterInput;
-let audioNoiseBuffer;
 let strikeTimer;
 let comboTimer;
 let toastTimer;
@@ -1209,8 +1077,6 @@ let lastRandomEventAt = 0;
 let lastHitSoundAt = 0;
 let lastHapticAt = 0;
 let lastRhythmRewardAt = 0;
-let lastRhythmHintAt = 0;
-let lastRhythmFeedbackKey = "";
 let recentHits = [];
 let latestShareDataUrl = "";
 let isHydrating = true;
@@ -1348,9 +1214,7 @@ const normalizeState = (rawState = {}) => {
     ),
   );
   const derivedAppearances = APPEARANCES.filter(
-    (appearance) =>
-      (appearance.unlockAchievement && achievements.includes(appearance.unlockAchievement)) ||
-      (appearance.unlockCollectionCard && unlockedCollectionCards.includes(appearance.unlockCollectionCard)),
+    (appearance) => appearance.unlockAchievement && achievements.includes(appearance.unlockAchievement),
   ).map((appearance) => appearance.key);
   const derivedSoundStyles = SOUND_STYLES.filter(
     (style) =>
@@ -1639,141 +1503,17 @@ const getAudioContext = () => {
   return audioContext;
 };
 
-const getAudioOutput = (context) => {
-  if (audioMasterInput) {
-    return audioMasterInput;
-  }
-  const input = context.createGain();
-  const compressor = context.createDynamicsCompressor();
-  const limiter = context.createGain();
-  input.gain.value = 1;
-  compressor.threshold.value = -18;
-  compressor.knee.value = 22;
-  compressor.ratio.value = 3.2;
-  compressor.attack.value = 0.003;
-  compressor.release.value = 0.22;
-  limiter.gain.value = 0.92;
-  input.connect(compressor);
-  compressor.connect(limiter);
-  limiter.connect(context.destination);
-  audioMasterInput = input;
-  return audioMasterInput;
-};
-
-const getNoiseBuffer = (context) => {
-  if (audioNoiseBuffer && audioNoiseBuffer.sampleRate === context.sampleRate) {
-    return audioNoiseBuffer;
-  }
-  const duration = 0.22;
-  const buffer = context.createBuffer(1, Math.ceil(context.sampleRate * duration), context.sampleRate);
-  const channel = buffer.getChannelData(0);
-  for (let index = 0; index < channel.length; index += 1) {
-    channel[index] = (Math.random() * 2 - 1) * (1 - index / channel.length);
-  }
-  audioNoiseBuffer = buffer;
-  return audioNoiseBuffer;
-};
-
-const connectWithPan = (context, source, destination, pan = 0) => {
-  if (typeof context.createStereoPanner === "function") {
-    const panner = context.createStereoPanner();
-    panner.pan.value = pan;
-    source.connect(panner);
-    panner.connect(destination);
-    return panner;
-  }
-  source.connect(destination);
-  return source;
-};
-
-const createStyledAudioBus = (context, tuning, now, peak, duration) => {
-  const output = getAudioOutput(context);
-  const master = context.createGain();
-  const toneBus = context.createGain();
-  master.gain.setValueAtTime(0.0001, now);
-  master.gain.exponentialRampToValueAtTime(peak, now + 0.008);
-  master.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-  toneBus.gain.value = 1;
-  toneBus.connect(master);
-
-  if (tuning?.resonance?.mix) {
-    const filter = context.createBiquadFilter();
-    const resonanceGain = context.createGain();
-    filter.type = "bandpass";
-    filter.frequency.value = tuning.resonance.frequency;
-    filter.Q.value = tuning.resonance.q;
-    resonanceGain.gain.value = tuning.resonance.mix;
-    toneBus.connect(filter);
-    filter.connect(resonanceGain);
-    resonanceGain.connect(master);
-  }
-
-  if (tuning?.air?.mix) {
-    const airFilter = context.createBiquadFilter();
-    const airGain = context.createGain();
-    airFilter.type = "highpass";
-    airFilter.frequency.value = tuning.air.frequency;
-    airGain.gain.value = tuning.air.mix;
-    toneBus.connect(airFilter);
-    airFilter.connect(airGain);
-    airGain.connect(master);
-  }
-
-  if (tuning?.echo?.mix) {
-    const delay = context.createDelay(0.4);
-    const feedback = context.createGain();
-    const lowpass = context.createBiquadFilter();
-    const echoGain = context.createGain();
-    delay.delayTime.value = tuning.echo.time;
-    feedback.gain.value = tuning.echo.feedback;
-    lowpass.type = "lowpass";
-    lowpass.frequency.value = tuning.echo.lowpass;
-    echoGain.gain.value = tuning.echo.mix;
-    toneBus.connect(delay);
-    delay.connect(lowpass);
-    lowpass.connect(feedback);
-    feedback.connect(delay);
-    lowpass.connect(echoGain);
-    echoGain.connect(master);
-  }
-
-  master.connect(output);
-  return toneBus;
-};
-
-const playTransientBurst = (context, tuning, now, destination) => {
-  if (!tuning?.transient?.peak) {
-    return;
-  }
-  const source = context.createBufferSource();
-  const filter = context.createBiquadFilter();
-  const gain = context.createGain();
-  source.buffer = getNoiseBuffer(context);
-  filter.type = "bandpass";
-  filter.frequency.setValueAtTime(tuning.transient.filterStart, now);
-  filter.frequency.exponentialRampToValueAtTime(
-    Math.max(180, tuning.transient.filterEnd),
-    now + tuning.transient.duration,
-  );
-  filter.Q.value = 0.8;
-  gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(tuning.transient.peak, now + 0.003);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + tuning.transient.duration);
-  source.connect(filter);
-  connectWithPan(context, filter, gain, (Math.random() - 0.5) * (tuning.stereoWidth || 0.08));
-  gain.connect(destination);
-  source.start(now);
-  source.stop(now + tuning.transient.duration + 0.02);
-};
-
-const playLayeredTone = (frequencies, duration, peak = 0.18, styleKey = state.currentSoundStyle) => {
+const playLayeredTone = (frequencies, duration, peak = 0.18) => {
   const context = getAudioContext();
   if (!context || !state.soundEnabled) {
     return;
   }
   const now = context.currentTime;
-  const tuning = SOUND_STYLE_TUNING[styleKey] || SOUND_STYLE_TUNING.classic;
-  const toneBus = createStyledAudioBus(context, tuning, now, peak, duration);
+  const gain = context.createGain();
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(peak, now + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  gain.connect(context.destination);
 
   frequencies.forEach((frequency, index) => {
     const osc = context.createOscillator();
@@ -1784,12 +1524,7 @@ const playLayeredTone = (frequencies, duration, peak = 0.18, styleKey = state.cu
     oscGain.gain.exponentialRampToValueAtTime(0.16, now + index * 0.02 + 0.02);
     oscGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
     osc.connect(oscGain);
-    connectWithPan(
-      context,
-      oscGain,
-      toneBus,
-      (index - (frequencies.length - 1) / 2) * (tuning.stereoWidth || 0.06),
-    );
+    oscGain.connect(gain);
     osc.start(now + index * 0.02);
     osc.stop(now + duration + 0.04);
   });
@@ -1816,38 +1551,25 @@ const playHitSound = (styleKey = state.currentSoundStyle, options = {}) => {
   }
   const soundStyle = getSoundStyle(styleKey);
   const profile = soundStyle.hit || SOUND_STYLES[0].hit;
-  const tuning = SOUND_STYLE_TUNING[styleKey] || SOUND_STYLE_TUNING.classic;
   const now = context.currentTime;
-  const toneBus = createStyledAudioBus(
-    context,
-    tuning,
-    now,
-    profile.masterPeak || 0.22,
-    profile.masterDuration || 0.42,
-  );
-  playTransientBurst(context, tuning, now, toneBus);
+  const master = context.createGain();
+  master.gain.setValueAtTime(0.0001, now);
+  master.gain.exponentialRampToValueAtTime(profile.masterPeak || 0.22, now + 0.008);
+  master.gain.exponentialRampToValueAtTime(0.0001, now + (profile.masterDuration || 0.42));
+  master.connect(context.destination);
 
   (profile.layers || []).forEach((layer) => {
     const startAt = now + (layer.delay || 0);
     const osc = context.createOscillator();
     const oscGain = context.createGain();
-    const drift = 1 + (Math.random() * 2 - 1) * (tuning.drift || 0.01);
     osc.type = layer.type || "sine";
-    osc.frequency.setValueAtTime(layer.start * drift, startAt);
-    osc.frequency.exponentialRampToValueAtTime(
-      Math.max(1, (layer.end || layer.start) * drift),
-      startAt + (layer.duration || 0.1),
-    );
+    osc.frequency.setValueAtTime(layer.start, startAt);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(1, layer.end || layer.start), startAt + (layer.duration || 0.1));
     oscGain.gain.setValueAtTime(0.0001, startAt);
     oscGain.gain.exponentialRampToValueAtTime(layer.peak || 0.12, startAt + (layer.attack || 0.01));
     oscGain.gain.exponentialRampToValueAtTime(0.0001, startAt + (layer.duration || 0.1));
     osc.connect(oscGain);
-    connectWithPan(
-      context,
-      oscGain,
-      toneBus,
-      ((Math.random() * 2 - 1) * (tuning.stereoWidth || 0.08)) / (options.preview ? 2 : 1),
-    );
+    oscGain.connect(master);
     osc.start(startAt);
     osc.stop(startAt + (layer.duration || 0.1) + 0.04);
   });
@@ -1856,12 +1578,12 @@ const playHitSound = (styleKey = state.currentSoundStyle, options = {}) => {
 const playUnlockSound = (styleKey = state.currentSoundStyle) => {
   const soundStyle = getSoundStyle(styleKey);
   const chord = soundStyle.unlockChord || SOUND_STYLES[0].unlockChord;
-  playLayeredTone(chord.frequencies, chord.duration, chord.peak, styleKey);
+  playLayeredTone(chord.frequencies, chord.duration, chord.peak);
 };
 const playChimeSound = (styleKey = state.currentSoundStyle) => {
   const soundStyle = getSoundStyle(styleKey);
   const chord = soundStyle.ritualChord || SOUND_STYLES[0].ritualChord;
-  playLayeredTone(chord.frequencies, chord.duration, chord.peak, styleKey);
+  playLayeredTone(chord.frequencies, chord.duration, chord.peak);
 };
 
 const getNextZenQuote = () => {
@@ -2136,14 +1858,14 @@ const renderRitualVaultSignal = (summary = getVaultSummary()) => {
   if (summary.latestUnlocked) {
     ritualVaultKickerNode.textContent = "最近点亮";
     ritualVaultTitleNode.textContent = `${summary.latestUnlocked.card.index} · ${summary.latestUnlocked.card.title}`;
-    ritualVaultNoteNode.textContent = "我的藏阁已显满，继续修行可等待新的隐藏线扩展。";
+    ritualVaultNoteNode.textContent = "当前藏阁已显满，继续修行可等待新的隐藏线扩展。";
     ritualVaultStateNode.textContent = "已收录";
     return;
   }
 
   ritualVaultKickerNode.textContent = "当前秘藏线索";
   ritualVaultTitleNode.textContent = "继续敲击以点亮下一张秘藏";
-  ritualVaultNoteNode.textContent = "当前修行会同步推进第三屏的个人秘藏柜。";
+  ritualVaultNoteNode.textContent = "当前修行会同步推进第三屏秘藏柜。";
   ritualVaultStateNode.textContent = "线索中";
 };
 
@@ -2393,113 +2115,35 @@ const getRhythmState = (timestamps) => {
   );
 };
 
-const getRhythmFeedback = (timestamps) => {
-  if (!Array.isArray(timestamps) || timestamps.length < 4) {
-    return null;
-  }
-
-  const windowHits = timestamps.slice(-6);
-  const intervals = [];
-  for (let index = 1; index < windowHits.length; index += 1) {
-    intervals.push(windowHits[index] - windowHits[index - 1]);
-  }
-
-  if (intervals.length < 3) {
-    return null;
-  }
-
-  const average = intervals.reduce((sum, interval) => sum + interval, 0) / intervals.length;
-  const deviation = Math.max(...intervals.map((interval) => Math.abs(interval - average)));
-  const positiveState = getRhythmState(windowHits);
-
-  if (positiveState) {
-    return {
-      ...positiveState,
-      kind: "positive",
-      emphasis: positiveState.variant === "rare" ? "strong" : "soft",
-      badgeText: positiveState.shortLabel,
-    };
-  }
-
-  const guidanceState =
-    RHYTHM_GUIDANCE_STATES.find((rule) => {
-      if (windowHits.length < rule.minHits) {
-        return false;
-      }
-      if (typeof rule.maxAverage === "number" && average > rule.maxAverage) {
-        return false;
-      }
-      if (typeof rule.minAverage === "number" && average < rule.minAverage) {
-        return false;
-      }
-      if (typeof rule.minDeviation === "number" && deviation < rule.minDeviation) {
-        return false;
-      }
-      return true;
-    }) || null;
-
-  if (!guidanceState) {
-    return null;
-  }
-
-  return {
-    ...guidanceState,
-    kind: "guidance",
-    variant: guidanceState.tone === "warning" ? "rare" : "common",
-    emphasis: guidanceState.tone === "warning" ? "strong" : "soft",
-    badgeText: guidanceState.shortLabel,
-  };
-};
-
-const updateRhythmUI = (rhythmFeedback = null) => {
+const updateRhythmUI = (rhythmState = null) => {
   if (!ritualFlowNode) {
     return;
   }
 
-  ritualFlowNode.classList.remove("is-common", "is-rare", "is-warning", "is-caution", "is-active");
-  if (!rhythmFeedback) {
+  ritualFlowNode.classList.remove("is-common", "is-rare", "is-active");
+  if (!rhythmState) {
     ritualFlowNode.textContent = "稳敲进入节奏";
     return;
   }
 
-  ritualFlowNode.textContent = `${rhythmFeedback.label} · ${rhythmFeedback.note}`;
-  ritualFlowNode.classList.add("is-active");
-  if (rhythmFeedback.kind === "guidance") {
-    ritualFlowNode.classList.add(rhythmFeedback.tone === "warning" ? "is-warning" : "is-caution");
-    return;
-  }
-  ritualFlowNode.classList.add(rhythmFeedback.variant === "rare" ? "is-rare" : "is-common");
+  ritualFlowNode.textContent = `${rhythmState.label} · ${rhythmState.note}`;
+  ritualFlowNode.classList.add("is-active", rhythmState.variant === "rare" ? "is-rare" : "is-common");
 };
 
-const maybeRewardRhythm = (rhythmFeedback) => {
-  if (!rhythmFeedback) {
+const maybeRewardRhythm = (rhythmState) => {
+  if (!rhythmState) {
     return;
   }
   const nowStamp = performance.now();
-  if (rhythmFeedback.kind === "guidance") {
-    if (rhythmFeedback.key === lastRhythmFeedbackKey && nowStamp - lastRhythmHintAt < 2200) {
-      return;
-    }
-    lastRhythmFeedbackKey = rhythmFeedback.key;
-    lastRhythmHintAt = nowStamp;
-    showNotice(rhythmFeedback.label, rhythmFeedback.note, rhythmFeedback.variant);
-    spawnFloatTag(rhythmFeedback.badgeText || rhythmFeedback.shortLabel || rhythmFeedback.label, {
-      variant: rhythmFeedback.variant,
-      burst: rhythmFeedback.emphasis === "strong",
-    });
-    return;
-  }
-
   if (nowStamp - lastRhythmRewardAt < RHYTHM_REWARD_COOLDOWN_MS) {
     return;
   }
-  lastRhythmFeedbackKey = rhythmFeedback.key;
   lastRhythmRewardAt = nowStamp;
   const soundFeedback = getSoundStyleFeedback();
-  showNotice(`${soundFeedback.comboLabel} · ${rhythmFeedback.label}`, rhythmFeedback.note, rhythmFeedback.variant);
-  spawnFloatTag(soundFeedback.comboLabel === "FLOW" ? rhythmFeedback.shortLabel : `${soundFeedback.comboLabel}`, {
-    variant: rhythmFeedback.variant,
-    burst: rhythmFeedback.variant === "rare",
+  showNotice(`${soundFeedback.comboLabel} · ${rhythmState.label}`, rhythmState.note, rhythmState.variant);
+  spawnFloatTag(soundFeedback.comboLabel === "FLOW" ? rhythmState.shortLabel : `${soundFeedback.comboLabel}`, {
+    variant: rhythmState.variant,
+    burst: rhythmState.variant === "rare",
   });
 };
 
@@ -2538,18 +2182,8 @@ const pulseRitualStage = () => {
   pulseTimer = window.setTimeout(() => ritualStage.classList.remove("is-pulsing"), 220);
 };
 
-const updateComboBadge = (count, burst = false, rhythmFeedback = null) => {
+const updateComboBadge = (count, burst = false) => {
   if (!comboBadge) {
-    return;
-  }
-  if (rhythmFeedback?.kind === "guidance") {
-    comboBadge.textContent = rhythmFeedback.badgeText || rhythmFeedback.shortLabel || rhythmFeedback.label;
-    comboBadge.style.color = rhythmFeedback.tone === "warning" ? "#ffd0b4" : "#dff4ff";
-    comboBadge.classList.add("is-visible");
-    window.clearTimeout(comboBadgeTimer);
-    comboBadgeTimer = window.setTimeout(() => {
-      comboBadge.classList.remove("is-visible");
-    }, rhythmFeedback.emphasis === "strong" ? 980 : 760);
     return;
   }
   if (count < 5) {
@@ -2727,9 +2361,7 @@ const renderRealmGuide = () => {
 };
 
 const maybeUnlockCollector = (options = {}) => {
-  const unlockedBaseAppearances = APPEARANCES.filter(
-    (appearance) => appearance.key !== "hologram" && appearance.countsTowardCollector !== false,
-  )
+  const unlockedBaseAppearances = APPEARANCES.filter((appearance) => appearance.key !== "hologram")
     .map((appearance) => appearance.key)
     .every((key) => state.unlockedAppearances.includes(key));
   if (unlockedBaseAppearances) {
@@ -2846,7 +2478,7 @@ const renderAppearances = () => {
         <p class="appearance-name">${appearance.name}</p>
         <p class="appearance-condition">${unlocked ? (active ? "当前使用中" : "已解锁，可切换") : appearance.condition}</p>
       </span>
-      <span class="appearance-lock">${unlocked ? (active ? "使用中" : "切换") : "锁定"}</span>
+      <span class="appearance-lock">${unlocked ? "使用中" : "锁定"}</span>
     `;
     if (unlocked) {
       button.addEventListener("click", () => {
@@ -3135,9 +2767,6 @@ const syncCollectionProgress = ({ silent = false } = {}) => {
 
       SOUND_STYLES.filter((item) => item.unlockCollectionCard === card.key).forEach((item) =>
         unlockSoundStyle(item.key, { silent }),
-      );
-      APPEARANCES.filter((item) => item.unlockCollectionCard === card.key).forEach((item) =>
-        unlockAppearance(item.key, { silent }),
       );
     }
   });
@@ -3439,8 +3068,8 @@ const renderVault = (summary = getVaultSummary()) => {
   }
   if (vaultLatestNode) {
     vaultLatestNode.textContent = summary.latestUnlocked
-      ? `我的最近点亮：${summary.latestUnlocked.card.index} · ${summary.latestUnlocked.card.title}`
-      : "继续修行以显影我的下一张秘藏";
+      ? `最近点亮：${summary.latestUnlocked.card.index} · ${summary.latestUnlocked.card.title}`
+      : "继续修行以显影新的秘藏";
   }
   if (vaultPublicCountNode) {
     vaultPublicCountNode.textContent = `公开秘藏 ${summary.publicUnlocked} / ${COLLECTION_CARDS.filter((card) => card.group === "public").length}`;
@@ -3459,8 +3088,8 @@ const renderVault = (summary = getVaultSummary()) => {
   if (vaultFootnoteNode) {
     vaultFootnoteNode.textContent =
       summary.hiddenCount > 0
-        ? `我的秘藏里仍有 ${summary.hiddenCount} 张待显影，均可点击查看线索。`
-        : "我的秘藏已经全部进入可见状态。";
+        ? `仍有 ${summary.hiddenCount} 张秘藏待显影，均可点击查看线索。`
+        : "当前秘藏已经全部进入可见状态。";
   }
   if (
     vaultSpotlightProgress &&
@@ -3722,7 +3351,7 @@ const strike = () => {
   const comboCount = recentHits.length;
   const isCombo = comboCount >= 3;
   const isBurst = comboCount >= 8;
-  const rhythmFeedback = getRhythmFeedback(recentHits);
+  const rhythmState = getRhythmState(recentHits);
   const tier = getStrikeTier(state.totalCount);
   const soundFeedback = getSoundStyleFeedback();
   const particleCount = Math.min(18, tier.particles + (isCombo ? 2 : 0) + (isBurst ? 2 : 0));
@@ -3745,8 +3374,8 @@ const strike = () => {
   if (state.totalCount % 72 === 0) {
     showNotice(soundFeedback.signalTitle || "感应", soundFeedback.signalNote || getNextZenQuote(), "common");
   }
-  updateRhythmUI(rhythmFeedback);
-  maybeRewardRhythm(rhythmFeedback);
+  updateRhythmUI(rhythmState);
+  maybeRewardRhythm(rhythmState);
   unlockDailyGoals(previousTodayCount, state.todayCount);
   if (randomEvent) {
     const rarityMeta = EVENT_RARITY_META[randomEvent.rarity] || EVENT_RARITY_META.common;
@@ -3761,7 +3390,7 @@ const strike = () => {
     });
     showNotice(`${rarityMeta.title} · ${eventLabel}`, randomEvent.note, rarityMeta.noticeVariant);
   }
-  updateComboBadge(comboCount, isBurst, rhythmFeedback);
+  updateComboBadge(comboCount, isBurst);
   triggerComboFeedback(isCombo || Boolean(randomEvent), isBurst || Boolean(randomEvent?.burst));
 
   if (state.totalCount >= 1000) {
@@ -3802,8 +3431,6 @@ const resetState = () => {
     shareMode: state.shareMode,
   };
   recentHits = [];
-  lastRhythmFeedbackKey = "";
-  lastRhythmHintAt = 0;
   updateRhythmUI(null);
   latestShareDataUrl = "";
   if (comboBadge) {
@@ -3888,7 +3515,7 @@ const getShareProfile = (mode = state.shareMode, options = {}) => {
       kicker: "BRAND POSTER",
       title: "DDMAX",
       subtitle: "CYBER ZEN RITUAL ARCHIVE",
-      note: "赛博禅境与数字修行，汇成一个可步入的品牌入口。",
+      note: "把赛博禅意、数字修行与视觉归档收拢成一个可以进入的品牌入口。",
       badge: `${currentAppearance.name} · ${getSoundStyle().shortName}`,
       accentStart: "#f7cf70",
       accentEnd: "#8fd7ff",
@@ -3916,23 +3543,23 @@ const getShareProfile = (mode = state.shareMode, options = {}) => {
       ? isSecretDropFocus
         ? `秘传掉落：${featuredView.title}`
         : featuredView.status === "unlocked"
-        ? `我的最近点亮：${featuredView.title}`
+        ? `最近点亮：${featuredView.title}`
         : `正在推进：${featuredView.title}`
-      : "个人秘藏系统已开启";
+      : "秘藏系统已开启";
     const vaultNote = featuredCard
       ? isSecretDropFocus
         ? `《${featuredCard.title}》刚显满，并掉落秘传音色「${linkedSoundStyle?.name || "秘传音色"}」。这张卡现在适合作为本轮收藏海报。`
         : featuredView?.status === "unlocked"
-        ? `《${featuredCard.title}》已入柜，我的藏阁已解锁 ${vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张。`
+        ? `《${featuredCard.title}》已入柜，当前藏阁已解锁 ${vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张。`
         : featuredView?.status === "revealed"
           ? `《${featuredView.title}》已显影，继续推进当前条件即可把它完整收入秘藏。`
           : "下一张深层秘藏仍在隐藏中，继续修行会让它开始显影。"
-      : "第三屏的个人秘藏会随着修行、节点和成就逐步开启。";
+      : "第三屏的秘藏会随着修行、节点和成就逐步开启。";
 
     return {
       type: "relic",
       kicker: "RELIC POSTER",
-      title: featuredView?.title || "我的秘藏柜",
+      title: featuredView?.title || "秘藏柜",
       subtitle: featuredCard
         ? `${featuredCard.index} · ${getCollectionGroupLabel(featuredCard.group)} · ${isSecretDropFocus ? `秘传 ${linkedSoundStyle?.shortName || ""}` : `已解锁 ${vaultSummary.unlockedCount}/${COLLECTION_CARDS.length}`}`
         : `已解锁 ${vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏`,
@@ -4372,7 +3999,7 @@ const shareText = (mode = state.shareMode, options = {}) => {
       : `距离下一段还差 ${profile.dailyProgress.nextGoal - state.todayCount} 下`;
 
   if (profile.type === "brand") {
-    return "DDMAX 在赛博禅境之中，开启一场数字修行。";
+    return "DDMAX 是一个把赛博禅意、数字修行和视觉归档收拢在一起的品牌入口。";
   }
 
   if (profile.type === "relic") {
@@ -4380,12 +4007,12 @@ const shareText = (mode = state.shareMode, options = {}) => {
       return `我在 DDMAX 刚点亮《${profile.featuredCollection.card.title}》，并掉落了秘传音色「${profile.linkedSoundStyle?.name || "秘传音色"}」。当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏。`;
     }
     if (profile.featuredCollection?.card && profile.featuredCollection?.view?.status === "unlocked") {
-      return `我在 DDMAX 的个人秘藏里点亮了《${profile.featuredCollection.card.title}》，当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏。`;
+      return `我在 DDMAX 的秘藏柜里点亮了《${profile.featuredCollection.card.title}》，当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏。`;
     }
     if (profile.vaultSummary.nextCard) {
       return `我正在 DDMAX 推进秘藏收集，下一张是《${profile.vaultSummary.nextCard.view.title}》，当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张。`;
     }
-    return `我正在 DDMAX 的个人秘藏里继续修行，当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏。`;
+    return `我正在 DDMAX 的秘藏柜里继续修行，当前已解锁 ${profile.vaultSummary.unlockedCount} / ${COLLECTION_CARDS.length} 张秘藏。`;
   }
 
   if (profile.type === "ritual") {
