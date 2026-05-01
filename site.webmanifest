@@ -1,0 +1,19 @@
+{
+  "name": "DDMAX Cyber Zen Ritual Archive",
+  "short_name": "DDMAX",
+  "description": "DDMAX 的赛博禅意品牌入口，融合数字修行、木鱼互动与视觉藏阁。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#05060a",
+  "theme_color": "#05060a",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

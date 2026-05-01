@@ -1,0 +1,18 @@
+<svg width="960" height="1320" viewBox="0 0 960 1320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1320" fill="#08080E"/>
+  <rect x="48" y="48" width="864" height="1224" rx="44" fill="url(#paint0_linear)" fill-opacity="0.24" stroke="#F3E8D7" stroke-opacity="0.08"/>
+  <circle cx="212" cy="1038" r="200" fill="#F76D4D" fill-opacity="0.22"/>
+  <circle cx="760" cy="238" r="170" fill="#5FD0FF" fill-opacity="0.22"/>
+  <path d="M208 980C294 816 430 704 662 578" stroke="#F3E8D7" stroke-width="4" stroke-dasharray="14 12" stroke-opacity="0.68"/>
+  <path d="M240 876C428 818 590 690 736 434" stroke="#FFBB74" stroke-width="10" stroke-linecap="round"/>
+  <path d="M294 420H678V808H294V420Z" fill="#101324" fill-opacity="0.72" stroke="#F3E8D7" stroke-opacity="0.12"/>
+  <text x="114" y="154" fill="#F3E8D7" fill-opacity="0.76" font-family="Avenir Next, PingFang SC, sans-serif" font-size="28" letter-spacing="7">NARRATIVE SERIES</text>
+  <text x="108" y="1206" fill="#F3E8D7" fill-opacity="0.94" font-family="Georgia, serif" font-size="78">AFTERGLOW ARCHIVE</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="100" y1="70" x2="842" y2="1264" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101B32"/>
+      <stop offset="0.52" stop-color="#08080E"/>
+      <stop offset="1" stop-color="#261115"/>
+    </linearGradient>
+  </defs>
+</svg>
